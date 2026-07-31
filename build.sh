@@ -65,9 +65,9 @@ then
   exit 1
 fi
 
-if ! type -P convert >/dev/null
+if ! type -P magick >/dev/null
 then
-  echo Cannot find convert. Please install ImageMagick
+  echo Cannot find magick. Please install ImageMagick
   exit 1
 fi
 
@@ -139,7 +139,7 @@ cp $LASTDIR/wsl.conf etc/wsl.conf || exit 1
 
 echo Creating usr/lib/wsl/ec2.ico
 
-convert -density 256x256 -background transparent \
+magick -density 256x256 -background transparent \
   -define icon:auto-resize=256,128,96,64,48,32,16 $LASTDIR/ec2icon.svg usr/lib/wsl/ec2.ico
 
 echo Creating root/.bash_profile
